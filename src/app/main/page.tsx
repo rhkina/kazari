@@ -3,13 +3,11 @@
 import { Button } from '@/components/ui/button'
 import React from 'react'
 
-type Props = {}
-
-const MainPage = (props: Props) => {
+const MainPage = () => {
   return (
     <div>
       <div>Main Page</div>
-      <Button variant='destructive'>Button</Button>
+      <Button variant={'default'}>Button</Button>
     </div>
   )
 }
