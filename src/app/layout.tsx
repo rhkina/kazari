@@ -27,10 +27,9 @@ export default function RootLayout({
       <body className={`${inter.variable} font-sans min-h-screen antialiased`}>
         <ThemeProvider
           attribute='class'
-          defaultTheme='dark'
+          defaultTheme='light'
           enableSystem
-          disableTransitionOnChange
-        >
+          disableTransitionOnChange>
           {children}
         </ThemeProvider>
       </body>
