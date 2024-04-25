@@ -10,7 +10,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Kazari Acessórios | Semijoia | Artesanato',
+  title: 'Kazari Acessórios | Semijoias | Artesanatos',
   description: 'A beleza da variedade de cores e formas',
 }
 
@@ -20,19 +20,24 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en'>
-      <head>
-        <link rel='icon' href='/favicon.ico' sizes='any' />
-      </head>
-      <body className={`${inter.variable} font-sans min-h-screen antialiased`}>
-        <ThemeProvider
-          attribute='class'
-          defaultTheme='light'
-          enableSystem
-          disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
+    <>
+      <html lang='en' suppressHydrationWarning>
+        <head>
+          <link rel='icon' href='/favicon.ico' sizes='any' />
+        </head>
+        <body
+          className={`${inter.variable} font-sans min-h-screen antialiased`}
+        >
+          <ThemeProvider
+            attribute='class'
+            defaultTheme='system'
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
+    </>
   )
 }
