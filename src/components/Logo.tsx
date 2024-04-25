@@ -9,7 +9,7 @@ const Logo = () => {
         href={'/main'}
         className={buttonVariants({
           className:
-            'hidden md:flex !mb-5 lg:hover:bg-transparent lg:!p-0 md:!p-2',
+            'hidden md:flex !mb-5 hover:bg-transparent lg:!p-1 md:!p-2 !p:0',
           variant: 'ghost',
           size: 'lg',
         })}>
@@ -32,7 +32,7 @@ const Logo = () => {
           alt='logo'
           width={40}
           height={40}
-          className='lg:hidden'
+          className='lg:hidden hover:bg-transparent'
         />
       </Link>
     </div>
