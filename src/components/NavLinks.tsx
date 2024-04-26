@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Tooltip,
   TooltipContent,
@@ -6,6 +8,9 @@ import {
 } from '@/components/ui/tooltip'
 
 import { sideNavOptions } from '@/lib/constants'
+import { cn } from '@/lib/utils'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const NavLinks = () => {
   const pathName = usePathname()
@@ -24,14 +29,16 @@ const NavLinks = () => {
                       'bg-foreground/50 ': pathName === sideNavOption.href,
                     }
                   )}>
-                  <menuItem.Component selected={pathName === menuItem.href} />
+                  <sideNavOption.Component
+                    selected={pathName === sideNavOption.href}
+                  />
                 </Link>
               </li>
             </TooltipTrigger>
             <TooltipContent
               side='right'
               className='bg-background backdrop-blur-xl'>
-              <p>{menuItem.name}</p>
+              <p>{sideNavOption.name}</p>
             </TooltipContent>
           </Tooltip>
         </ul>

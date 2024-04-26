@@ -1,4 +1,4 @@
-import SideNav from '@/components/MenuOptions'
+import SideNav from '@/components/SideNav'
 import React, { ReactNode } from 'react'
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
