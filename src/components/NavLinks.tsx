@@ -7,43 +7,48 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 
-import { sideNavOptions } from '@/lib/constants'
+import { navOptions } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { Button } from './ui/button'
 
 const NavLinks = () => {
   const pathName = usePathname()
   return (
-    <TooltipProvider>
-      {sideNavOptions.map((sideNavOption) => (
-        <ul key={sideNavOption.name}>
-          <Tooltip delayDuration={0}>
+    <ul className='flex flex-col'>
+      <TooltipProvider>
+        {navOptions.map((navOption) => (
+          <Tooltip delayDuration={0} key={navOption.name}>
             <TooltipTrigger>
-              <li>
+              <li key={navOption.name}>
                 <Link
-                  href={sideNavOption.href}
+                  href={navOption.href}
                   className={cn(
                     'group flex h-10 w-10 cursor-pointer items-center justify-center rounded-full p-[3px]',
                     {
-                      'bg-foreground/50 ': pathName === sideNavOption.href,
+                      'bg-foreground/50 ': pathName === navOption.href,
                     }
-                  )}>
-                  <sideNavOption.Component
-                    selected={pathName === sideNavOption.href}
-                  />
+                  )}
+                >
+                  <Button variant={'ghost'}>
+                    <navOption.Component
+                      selected={pathName === navOption.href}
+                    />
+                  </Button>
                 </Link>
               </li>
             </TooltipTrigger>
             <TooltipContent
               side='right'
-              className='bg-background backdrop-blur-xl'>
-              <p>{sideNavOption.name}</p>
+              className='bg-background backdrop-blur-xl lg:hidden'
+            >
+              <p>{navOption.name}</p>
             </TooltipContent>
           </Tooltip>
-        </ul>
-      ))}
-    </TooltipProvider>
+        ))}
+      </TooltipProvider>
+    </ul>
   )
 }
 

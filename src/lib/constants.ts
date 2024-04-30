@@ -1,14 +1,20 @@
-import Home from '@/components/icons/home'
-import Settings from '@/components/icons/settings'
-export const sideNavOptions = [
+import HomeIcon from '@/components/icons/home'
+import SettingsIcon from '@/components/icons/settings'
+import DashboardIcon from '@/components/icons/dashboard'
+export const navOptions = [
   {
-    name: 'home',
-    Component: Home,
-    href: '/',
+    name: 'Home',
+    Component: HomeIcon,
+    href: '/main',
   },
   {
-    name: 'settings',
-    Component: Settings,
+    name: 'Dashboard',
+    Component: DashboardIcon,
+    href: '/dashboard',
+  },
+  {
+    name: 'Settings',
+    Component: SettingsIcon,
     href: '/settings',
   },
 ]
