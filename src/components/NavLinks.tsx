@@ -11,7 +11,7 @@ import { navOptions } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Button } from './ui/button'
+import { buttonVariants } from './ui/button'
 
 const NavLinks = () => {
   const pathName = usePathname()
@@ -21,28 +21,21 @@ const NavLinks = () => {
         {navOptions.map((navOption) => (
           <Tooltip delayDuration={0} key={navOption.name}>
             <TooltipTrigger>
-              <li key={navOption.name}>
+              <li key={navOption.name} className=''>
                 <Link
-                  href={navOption.href}
                   className={cn(
-                    'group flex h-10 w-10 cursor-pointer items-center justify-center rounded-full p-[3px]',
-                    {
-                      'bg-foreground/50 ': pathName === navOption.href,
-                    }
+                    buttonVariants({ variant: 'ghost' }),
+                    'w-full flex flex-row'
                   )}
-                >
-                  <Button variant={'ghost'}>
-                    <navOption.Component
-                      selected={pathName === navOption.href}
-                    />
-                  </Button>
+                  href={navOption.href}>
+                  <navOption.Component selected={pathName === navOption.href} />
+                  {navOption.name}
                 </Link>
               </li>
             </TooltipTrigger>
             <TooltipContent
               side='right'
-              className='bg-background backdrop-blur-xl lg:hidden'
-            >
+              className='bg-background backdrop-blur-xl lg:hidden'>
               <p>{navOption.name}</p>
             </TooltipContent>
           </Tooltip>
